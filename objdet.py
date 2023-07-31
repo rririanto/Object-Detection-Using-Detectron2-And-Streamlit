@@ -34,9 +34,7 @@ def inference(predictor, img):
 def output_image(cfg, img, outputs):
     v = Visualizer(img[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    processed_img = out.get_image()
-
-    return processed_img
+    return out.get_image()
 
 
 
